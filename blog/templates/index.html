@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'posts.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock %}
+
+{% block content %}  
+    <section id="welcome">
+        <header>
+            <img src=" {% static 'images/myphoto.jpg' %}" alt="Shantanu - The Author of this Blog">
+            <h2>Shantanu's Blog</h2>
+        </header>
+
+        <p>Hi, I am Shantanu and I like to blog about the things I like to do!</p>
+    </section>
+
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2> 
+               
+        <ul>
+            {% for post in posts %}
+                {% include 'includes/post.html' %} 
+                <!-- inside of included snippets we have access to the data which is available in the template that includes the above or any snippet -->
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>I am currently pursuing my Master's in Computer Applications (MCA).I work on projects that help me apply what I learn and improve my skills. Through this blog, I share some of my experiences and insights from my studies and projects.</p>
+        <p>Through this blog, I share some of my experiences and insights.</p>
+    </section>
+{% endblock %}
